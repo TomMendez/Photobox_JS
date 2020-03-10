@@ -65,6 +65,19 @@ nav #next {
 
 #lightbox_container {
     display : none;
+    background-color: lightslategrey;
+}
+
+#lightbox_head {
+  font-family: "Bauhaus 93";
+}
+
+#lightbox_title {
+  font-size: 100px;
+}
+
+#lightbox_close {
+  font-size: 200px;
 }
 
 .vignette {
