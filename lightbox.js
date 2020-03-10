@@ -26,5 +26,6 @@ export let lightbox = function(e) {
         }
     );
     $("#lightbox_container").css("display","block");
+    $("#lightbox_close").on("click",(e)=>{$("#lightbox_container").remove()});
 
 }
