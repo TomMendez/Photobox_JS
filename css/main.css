@@ -63,21 +63,18 @@ nav #next {
 .gallery-container {
 }
 
-#lightbox_container {
+.lightbox_container {
     display : none;
-    background-color: lightslategrey;
-}
-
-#lightbox_head {
-  font-family: "Bauhaus 93";
-}
-
-#lightbox_title {
-  font-size: 100px;
-}
-
-#lightbox_close {
-  font-size: 200px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 1000px;
+    height: 600px;
+    margin-left: -500px;
+    margin-top: -300px;
+    border-radius: 20px;
+    background-color: black;
+    text-align: center;
 }
 
 .vignette {
@@ -95,4 +92,20 @@ nav #next {
 
 .responsive{
   width:100%;
+}
+
+#lightbox_title {
+  font-size: 20px;
+  color: white;
+}
+
+#lightbox_close {
+  font-size: 30px;
+  color: red;
+}
+
+#lightbox_full_img {
+  max-height: 100%;
+  max-width: 100% ;
+  border-radius: 20px;
 }
