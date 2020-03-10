@@ -5,4 +5,6 @@ window.addEventListener("load", () => {
     p.start("https://webetu.iutnc.univ-lorraine.fr");
     g.init();
     $("#load_gallery").on("click",g.loadData);
+    $("#previous").on("click",g.loadPrev);
+    $("#next").on("click",g.loadNext);
 });

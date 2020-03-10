@@ -9,7 +9,6 @@ export let lightbox = function(e) {
 
     promesse.then(
         (img) => {
-            console.log(img); //DEBUG
             $('<div class="lightbox_container" id="lightbox_container">\n' +
                 '        <div id="lightbox">\n' +
                 '            <div id="lightbox-head">\n' +
