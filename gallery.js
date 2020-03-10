@@ -24,7 +24,6 @@ let affImg = function(data){
                 <img class="responsive" data-img="` + photo.server_url + p.photo.original.href + "\"\n" +
             `data-uri="` + photo.server_url + p.links.self.href + "\"\n" +
             `src="` + photo.server_url + p.photo.thumbnail.href + "\"" + `>
-                <div>` + p.photo.titre + `</div>
                 </div>`).appendTo($("#photobox-gallery"));
     }
     $(".vignette").on("click",lbox.lightbox);

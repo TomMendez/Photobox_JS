@@ -28,7 +28,8 @@ footer, header, hgroup, menu, nav, section {
   display: block; }
 
 body {
-  line-height: 1; }
+  line-height: 1;
+}
 
 ol, ul {
   list-style: none; }
@@ -49,57 +50,81 @@ div, nav, section, p, h1, h2 {
   box-sizing: border-box; }
 
 nav {
-  padding: 2em;
+  padding: 1em;
   font-size: 1.2em;
+  background-color: cadetblue;
+  text-align: center;
 }
 nav * {
   font-size: 1.2em;
-}
-
-nav #next {
-  margin-left: 15%;
-}
-
-.gallery-container {
+  border: 10px black;
 }
 
 .lightbox_container {
     display : none;
-    position: absolute;
-    border-radius: 20px;
-    background-color: black;
+    padding: 1em;
+    height: 100vh;
     text-align: center;
+    background-color: rgba(169, 169, 169, 0.9);
+    vertical-align: middle;
 }
 
 .vignette {
   max-width : 400px;
-  padding : 10px;
-  border : 5px solid black;
+  padding : 5px;
+  color: cadetblue;
 }
 
 .gallery-container {
+  display:grid;
   padding:5em;
   text-align: center;
-  display:grid;
   grid-template-columns : repeat(auto-fit,minmax(15rem,1fr));
 }
 
 .responsive{
   width:100%;
+  -webkit-box-shadow: -11px -18px 148px -40px rgba(255,255,255,1);
+  -moz-box-shadow: -11px -18px 148px -40px rgba(255,255,255,1);
+  box-shadow: -11px -18px 148px -40px rgba(255,255,255,1);
 }
 
-#lightbox_title {
-  font-size: 20px;
-  color: white;
+#light{
+  position: fixed;
+  top : 0px;
+  left: 0px;
 }
 
-#lightbox_close {
-  font-size: 30px;
-  color: red;
+.fa-remove{
+  float: right;
 }
 
 #lightbox_full_img {
-  max-height: 100%;
-  max-width: 100% ;
-  border-radius: 20px;
+  height: 60%;
+  width: 60%;
+  -webkit-box-shadow: -7px 13px 21px -7px rgba(0,0,0,0.75);
+  -moz-box-shadow: -7px 13px 21px -7px rgba(0,0,0,0.75);
+  box-shadow: -7px 13px 21px -7px rgba(0,0,0,0.75);
+}
+
+#load_gallery{
+  display: inline-block;
+  width:150px;
+  text-align:center;
+  background-color: cadetblue;
+  font-family: "Bradley Hand ITC";
+}
+
+#previous{
+  display:inline-block;
+  width:150px;
+  text-align:center;
+  background-color: cadetblue;
+}
+
+#next{
+  display:inline-block;
+  width:150px;
+  text-align:center;
+  background-color: cadetblue;
 }
