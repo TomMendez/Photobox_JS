@@ -50,10 +50,10 @@ div, nav, section, p, h1, h2 {
   box-sizing: border-box; }
 
 nav {
-  padding: 1em;
   font-size: 1.2em;
   background-color: cadetblue;
   text-align: center;
+  height: 100px;
 }
 nav * {
   font-size: 1.2em;
@@ -89,14 +89,20 @@ nav * {
   box-shadow: -11px -18px 148px -40px rgba(255,255,255,1);
 }
 
+.fa-remove{
+  float: right;
+}
+
+.logo{
+  left: 0;
+  height: 100px;
+  position: absolute;
+}
+
 #light{
   position: fixed;
   top : 0px;
   left: 0px;
-}
-
-.fa-remove{
-  float: right;
 }
 
 #lightbox_full_img {
@@ -113,6 +119,7 @@ nav * {
   text-align:center;
   background-color: cadetblue;
   font-family: "Bradley Hand ITC";
+  margin-top: 35px;
 }
 
 #previous{
