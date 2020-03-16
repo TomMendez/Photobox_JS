@@ -1,7 +1,9 @@
 import * as photo from "./photoloader.js";
+import * as gal from "./gallery.js";
 
-export let lightbox = function(e) {
-    let uri = e.target.getAttribute("data-uri");
+let index;
+
+export let lightbox = function(uri) {
     let promesse = axios.get(uri,{
         withCredentials: true,
         responseType: "json"
@@ -9,12 +11,16 @@ export let lightbox = function(e) {
 
     promesse.then(
         (img) => {
+            $("#light").empty();
             $("#light").append(
 
                 $('<div class="lightbox_container" id="lightbox_container">\n' +
                     '        <div id="lightbox">\n' +
                     '            <div id="lightbox-head">\n' +
-                    '                <p id="lightbox_close"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">' +
+                    '                <p class="prevLightbox"> <<< </p>\n' +
+                    '                <p class="titrePhoto">'+img.data.photo.titre+'</p>\n' +
+                    '                <p id="lightbox_close"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">\n' +
+                    '                <p class="nextLightbox"> >>> </p>\n' +
                     '</p>\n '+ '<i class="fa fa-remove" style="font-size:36px"></i>' +
                     '            </div>\n' +
                     '\n' +
@@ -25,10 +31,29 @@ export let lightbox = function(e) {
                     '\n' +
                     '    </div>')
                 );
+            index = gal.id.indexOf(img.data.photo.id);
             $("#lightbox_container").css("display","table-cell");
             $(".fa-remove").on("click",(e)=>{$("#lightbox_container").remove()});
+            $(".prevLightbox").on("click",prev);
+            $(".nextLightbox").on("click",next);
         }
     );
 
 
+}
+
+let prev = function(){
+    if(index<=0){
+        gal.loadPrevLightbox();
+    }else{
+        lightbox(photo.server_url+gal.urls[index-1]);
+    }
+}
+
+let next = function(){
+    if(index>=gal.id.length-1){
+        gal.loadNextLightbox();
+    }else{
+        lightbox(photo.server_url+gal.urls[index+1]);
+    }
 }
