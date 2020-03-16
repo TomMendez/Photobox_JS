@@ -25,9 +25,10 @@ export let lightbox = function(e) {
                     '\n' +
                     '    </div>')
                 );
+            $("#lightbox_container").css("display","table-cell");
+            $(".fa-remove").on("click",(e)=>{$("#lightbox_container").remove()});
         }
     );
-    $("#lightbox_container").css("display","table-cell");
-    $(".fa-remove").on("click",(e)=>{$("#lightbox_container").remove()});
+
 
 }
