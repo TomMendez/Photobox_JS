@@ -11,6 +11,9 @@ export let lightbox = function(uri) {
 
     promesse.then(
         (img) => {
+
+            console.log(img);
+
             $("#light").empty();
             $("#light").append(
 
@@ -27,10 +30,31 @@ export let lightbox = function(uri) {
                     '            <div id="lightbox-img">\n' +
                     '                <img id="lightbox_full_img" src="' + photo.server_url+img.data.photo.url.href + '">\n' +
                     '            </div>\n' +
+                    '            <p class="description">' + img.data.photo.descr + ' (' + img.data.photo.width + '*' + img.data.photo.height + ')</p>' +
                     '        </div>\n' +
                     '\n' +
+                    '<div class="com_container" id="com_container"></div>\n' +
                     '    </div>')
                 );
+            let prom2 = axios.get(photo.server_url+img.data.links.comments.href,{
+                withCredentials: true,
+                responseType: "json"
+            }).catch(() => "erreur lors du chargement de l'image");
+            prom2.then(
+                (comments) => {
+
+                    comments.data.comments.forEach(
+                        (com) => {
+                            $("#com_container").append(
+                                $('<div class="com">'+com.pseudo + ' \n' +
+                                    com.titre + ' \n' +
+                                    com.content + ' \n' +
+                                    com.date + ' \n' +
+                                    '</div>')
+                            )}
+                )}
+            );
+
             index = gal.id.indexOf(img.data.photo.id);
             $("#lightbox_container").css("display","table-cell");
             $(".fa-remove").on("click",(e)=>{$("#lightbox_container").remove()});

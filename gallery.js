@@ -1,7 +1,7 @@
 import * as photo from './photoloader.js';
 import * as lbox from './lightbox.js';
 
-export let urls, id, prev, next;
+export let urls, id, prev, next, first, last;
 
 export let init = function () {
     urls = [];
@@ -12,6 +12,8 @@ export let loadData = function () {
     photo.loadImages("/www/canals5/photobox/photos/").then(
         ({data}) => {
             affImg(data);
+            first = data.links.first.href;
+            last =  data.links.last.href;
         }
     )
 }
@@ -37,7 +39,13 @@ export let affImg = function(data){
 export let loadPrev = function () {
     urls = [];
     id = [];
-    photo.loadImages(prev).then(
+    let prom;
+    if((photo.page_uri)==first){
+        prom=photo.loadImages(last);
+    }else{
+        prom=photo.loadImages(prev);
+    }
+    prom.then(
         ({data}) => {
             affImg(data);
         }
@@ -47,7 +55,13 @@ export let loadPrev = function () {
 export let loadNext = function () {
     urls = [];
     id = [];
-    photo.loadImages(next).then(
+    let prom;
+    if((photo.page_uri)==last){
+        prom=photo.loadImages(first);
+    }else{
+        prom=photo.loadImages(next);
+    }
+    prom.then(
         ({data}) => {
             affImg(data);
         }
@@ -57,7 +71,13 @@ export let loadNext = function () {
 export let loadNextLightbox = function () {
     urls = [];
     id = [];
-    photo.loadImages(next).then(
+    let prom;
+    if((photo.page_uri)==last){
+        prom=photo.loadImages(first);
+    }else{
+        prom=photo.loadImages(next);
+    }
+   prom.then(
         ({data}) => {
             affImg(data);
             lbox.lightbox(photo.server_url+urls[0]);
@@ -68,7 +88,13 @@ export let loadNextLightbox = function () {
 export let loadPrevLightbox = function () {
     urls = [];
     id = [];
-    photo.loadImages(prev).then(
+    let prom;
+    if((photo.page_uri)==first){
+        prom=photo.loadImages(last);
+    }else{
+        prom=photo.loadImages(prev);
+    }
+    prom.then(
         ({data}) => {
             affImg(data);
             lbox.lightbox(photo.server_url+urls[urls.length-1]);
