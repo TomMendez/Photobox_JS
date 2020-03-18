@@ -12,8 +12,6 @@ export let lightbox = function(uri) {
     promesse.then(
         (img) => {
 
-            console.log(img);
-
             $("#light").empty();
             $("#light").append(
 
