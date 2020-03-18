@@ -62,8 +62,12 @@ nav * {
 
 .vignette {
   max-width : 400px;
-  padding : 5px;
-  color: cadetblue;
+  margin : 5px;
+}
+
+.grandeVignette{
+  border: solid 3px ;
+  border-radius: 25px;
 }
 
 .gallery-container {
@@ -92,7 +96,7 @@ nav * {
   position: fixed;
   top : 0px;
   left: 0px;
-  background-color: rgba(169, 169, 169, 0.9);
+  background-color: rgba(169, 169, 169, 0.95);
 }
 
 .grille{

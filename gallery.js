@@ -32,6 +32,8 @@ export let affImg = function(data){
     }
 
     $(".vignette").on("click",(e)=>lbox.lightbox(e.target.getAttribute("data-uri")));
+    $(".responsive").on("mouseover", (e)=>e.target.classList.toggle("grandeVignette"));
+    $(".responsive").on("mouseout", (e)=>e.target.classList.toggle("grandeVignette"));
     prev = data.links.prev.href;
     next = data.links.next.href;
 }
