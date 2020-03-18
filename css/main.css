@@ -29,6 +29,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
   line-height: 1;
+  font-family: "Franklin Gothic Book";
 }
 
 ol, ul {
@@ -50,7 +51,6 @@ div, nav, section, p, h1, h2 {
   box-sizing: border-box; }
 
 nav {
-  font-size: 1.2em;
   background-color: cadetblue;
   text-align: center;
   height: 100px;
@@ -58,15 +58,6 @@ nav {
 nav * {
   font-size: 1.2em;
   border: 10px black;
-}
-
-.lightbox_container {
-    display : none;
-    padding: 1em;
-    height: 100vh;
-    text-align: center;
-    background-color: rgba(169, 169, 169, 0.9);
-    vertical-align: middle;
 }
 
 .vignette {
@@ -89,49 +80,87 @@ nav * {
   box-shadow: -11px -18px 148px -40px rgba(255,255,255,1);
 }
 
-.fa-remove{
-  float: right;
+.mainImg{
+  text-align: center;
 }
 
-.logo{
-  left: 0;
-  height: 100px;
-  position: absolute;
+.fa-remove{
+  text-align: right;
 }
 
 #light{
   position: fixed;
   top : 0px;
   left: 0px;
+  background-color: rgba(169, 169, 169, 0.9);
+}
+
+.grille{
+  display: grid;
+  grid-template-columns: 4fr 2fr;
+  height: 88vh;
+  border-top: solid 2px;
+  margin-top: 20px;
+}
+
+#lightbox{
+  margin: 10px;
+}
+
+#lightbox-head{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+}
+
+
+#lightbox-img{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
 }
 
 #lightbox_full_img {
-  height: 60%;
-  width: 60%;
+  max-height: 500px;
+  max-width: 600px;
   -webkit-box-shadow: -7px 13px 21px -7px rgba(0,0,0,0.75);
   -moz-box-shadow: -7px 13px 21px -7px rgba(0,0,0,0.75);
   box-shadow: -7px 13px 21px -7px rgba(0,0,0,0.75);
 }
 
+.logo{
+  height: 100px;
+}
+
+.boutons{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
 #load_gallery{
-  display: inline-block;
-  width:150px;
   text-align:center;
   background-color: cadetblue;
-  font-family: "Bradley Hand ITC";
-  margin-top: 35px;
 }
 
 #previous{
-  display:inline-block;
-  width:150px;
   text-align:center;
   background-color: cadetblue;
 }
 
 #next{
-  display:inline-block;
-  width:150px;
   text-align:center;
   background-color: cadetblue;
+}
+
+#com_container{
+  border-left: solid 2px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  padding-top: 20px;
+}
+
+.com{
+  margin: 25px;
+  border-top: solid 1px;
 }
